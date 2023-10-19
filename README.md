@@ -6,7 +6,12 @@
 	🚧  BACKEND, FRONTEND E MICRO-SERVIÇOS...  🚧
 </h3>
 
-![Imersão Full Stack && Full Cycle](https://events-fullcycle.s3.amazonaws.com/events-fullcycle/static/site/img/grupo_4417.png)
+<br />
+<br />
+
+<p align="center">
+    ![Imersão Full Stack && Full Cycle](https://events-fullcycle.s3.amazonaws.com/events-fullcycle/static/site/img/grupo_4417.png)
+</p>
 
 ## Imagens do projeto
 
