@@ -100,6 +100,7 @@ func (k *KafkaProcessor) processTransaction(msg *ckafka.Message) error {
 	if err != nil {
 		return err
 	}
+
 	return nil
 }
 
@@ -122,8 +123,10 @@ func (k *KafkaProcessor) processTransactionConfirmation(msg *ckafka.Message) err
 		if err != nil {
 			return err
 		}
+		
 		return nil
 	}
+
 	return nil
 }
 
@@ -143,5 +146,6 @@ func (k *KafkaProcessor) confirmTransaction(transaction *appmodel.Transaction, t
 	if err != nil {
 		return err
 	}
+
 	return nil
 }

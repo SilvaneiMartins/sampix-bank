@@ -7,27 +7,28 @@
 </h3>
 
 <br />
-<br />
+
+# BANCKEND - CODEPIX
 
 ![Imersão Full Stack && Full Cycle](https://events-fullcycle.s3.amazonaws.com/events-fullcycle/static/site/img/grupo_4417.png)
 
-## Imagens do projeto
+### Imagens do projeto
 
 <p align="center">
   <a href="https://imgur.com/7ktsFje"><img src="https://i.imgur.com/7ktsFje.png" title="source: imgur.com" /></a>
   <br />
 </p>
 
-## Informações da Imersão
+### Informações da Imersão
 
 Participei da imersão FULL CYCLE:
 Link do curso: https://imersao.fullcycle.com.br
 
-## Microsserviço CodePix
+### Microsserviço CodePix
 
 Esse microsserviço tem o objetivo de ser um hub de transações entre os bancos que simularemos durante o projeto.
 
-## Executar o projeto
+### Executar o projeto
 
 Utilizamos Docker para que todos os serviços que utilizaremos fiquem disponíveis e acessível para que possa rodar e ser consumido pelo serviços.
 
@@ -42,7 +43,7 @@ Utilizamos Docker para que todos os serviços que utilizaremos fiquem disponíve
     $ docker compose up -d
 ```
 
-## Executar a aplicação
+### Executar a aplicação
 
 ```bash
     # Acesse o container da aplicação executando
@@ -52,7 +53,21 @@ Utilizamos Docker para que todos os serviços que utilizaremos fiquem disponíve
     $ go run cmd/codepix/main.go
 ```
 
-## Alterações no `Dockerfile - Go`:
+### Acessar bash da aplicação codepix_app
+
+```bash
+    # Acesse o container da aplicação executando
+    $ docker exec -it nome_do_container bash
+```	
+
+### Acessar bash da aplicação codepix_kafka
+
+```bash
+    # Acesse o container da aplicação executando
+    $ docker exec -it nome_do_container bash
+```
+
+### Alterações no `Dockerfile - Go`:
 
 Vamos atualizar a versão do `Go` para a `golang:1.19`, desta forma os pacotes instalados serão compatíveis entre eles.
 
@@ -62,7 +77,6 @@ Precisamos substituir e incluir o comando de instalação do `cobra-cli`:
 
 ```bash
     $ go get github.com/spf13/cobra-cli@v1.3.0 && \
-
 ```
 
 Após realizar as alterações acima o `Dockerfile` ficará da seguinte forma:
@@ -95,7 +109,7 @@ Dentro do arquivo `go.mod` apague todo o conteúdo de `require` e no terminal ro
 
 Observação: Com isso a aplicação deve funcionar corretamente.
 
-## Serviços utilizados ao executar o docker-compose
+### Serviços utilizados ao executar o docker-compose
 
 - Aplicação principal
 - Postgres
@@ -105,11 +119,19 @@ Observação: Com isso a aplicação deve funcionar corretamente.
 - Confluent control center
 - ZooKeeper
 
-## Como executar cobra-cli
+### Como executar cobra-cli
 
 Como explicado acima, precisamos incluir o `cobra-cli` nas instalações internas do `container`, por isso o comando para iniciar o `cobra` será: `cobra-cli init`
 
-## Possíveis erros
+# MICROSERVIÇO - CODEPIX
+
+A Aplicação será criada utilizando o framework Next.js para criar os microsserviços.
+
+# FRONTEND WEB - CODEPIX
+
+A Aplicação será criada utilizando o framework Nest.js para criar a aplicação web para o acesso dó usuário.
+
+### Possíveis erros
 
 Caso esteja recebendo algum erro de dependências do `Golang` veja este guia: [Guia de ajustes](../README.md#alterações-no-dockerfile---go)
 

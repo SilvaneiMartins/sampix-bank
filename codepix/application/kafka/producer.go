@@ -2,30 +2,35 @@ package kafka
 
 import (
 	"fmt"
-	ckafka "github.com/confluentinc/confluent-kafka-go/kafka"
 	"os"
+
+	ckafka "github.com/confluentinc/confluent-kafka-go/kafka"
 )
 
 func NewKafkaProducer() *ckafka.Producer {
 	configMap := &ckafka.ConfigMap{
 		"bootstrap.servers": os.Getenv("kafkaBootstrapServers"),
 	}
+
 	p, err := ckafka.NewProducer(configMap)
 	if err != nil {
 		panic(err)
 	}
+
 	return p
 }
 
 func Publish(msg string, topic string, producer *ckafka.Producer, deliveryChan chan ckafka.Event) error {
 	message := &ckafka.Message{
-		TopicPartition: ckafka.TopicPartition{Topic: &topic, Partition: ckafka.PartitionAny},
+		TopicPartition: ckafka.TopicPartition{Topic: &topic, Partition: ckafka.PartitionAny.String()},
 		Value:          []byte(msg),
 	}
+
 	err := producer.Produce(message, deliveryChan)
 	if err != nil {
 		return err
 	}
+
 	return nil
 }
 
