@@ -11,12 +11,10 @@ func NewKafkaProducer() *ckafka.Producer {
 	configMap := &ckafka.ConfigMap{
 		"bootstrap.servers": os.Getenv("kafkaBootstrapServers"),
 	}
-
 	p, err := ckafka.NewProducer(configMap)
 	if err != nil {
 		panic(err)
 	}
-
 	return p
 }
 
@@ -25,12 +23,10 @@ func Publish(msg string, topic string, producer *ckafka.Producer, deliveryChan c
 		TopicPartition: ckafka.TopicPartition{Topic: &topic, Partition: ckafka.PartitionAny.String()},
 		Value:          []byte(msg),
 	}
-
 	err := producer.Produce(message, deliveryChan)
 	if err != nil {
 		return err
 	}
-
 	return nil
 }
 

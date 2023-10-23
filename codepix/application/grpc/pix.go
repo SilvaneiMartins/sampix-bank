@@ -2,7 +2,6 @@ package grpc
 
 import (
 	"context"
-
 	"github.com/codeedu/imersao/codepix-go/application/grpc/pb"
 	"github.com/codeedu/imersao/codepix-go/application/usecase"
 )

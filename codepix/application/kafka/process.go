@@ -2,14 +2,13 @@ package kafka
 
 import (
 	"fmt"
-	"os"
-
 	"github.com/codeedu/imersao/codepix-go/application/factory"
 	appmodel "github.com/codeedu/imersao/codepix-go/application/model"
 	"github.com/codeedu/imersao/codepix-go/application/usecase"
 	"github.com/codeedu/imersao/codepix-go/domain/model"
 	ckafka "github.com/confluentinc/confluent-kafka-go/kafka"
 	"github.com/jinzhu/gorm"
+	"os"
 )
 
 type KafkaProcessor struct {
@@ -100,7 +99,6 @@ func (k *KafkaProcessor) processTransaction(msg *ckafka.Message) error {
 	if err != nil {
 		return err
 	}
-
 	return nil
 }
 
@@ -123,10 +121,8 @@ func (k *KafkaProcessor) processTransactionConfirmation(msg *ckafka.Message) err
 		if err != nil {
 			return err
 		}
-		
 		return nil
 	}
-
 	return nil
 }
 
@@ -146,6 +142,5 @@ func (k *KafkaProcessor) confirmTransaction(transaction *appmodel.Transaction, t
 	if err != nil {
 		return err
 	}
-
 	return nil
 }
